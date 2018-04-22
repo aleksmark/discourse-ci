@@ -20,7 +20,7 @@
             "machine_type": "q35",
             "ssh_username": "packer",
             "ssh_password": "packer",
-            "ssh_wait_timeout": "20m",
+            "ssh_wait_timeout": "10m",
             "shutdown_command": "echo 'packer' | sudo -S shutdown -P now",
             "boot_wait": "5s",
             "boot_command": [
