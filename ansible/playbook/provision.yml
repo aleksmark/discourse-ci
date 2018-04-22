@@ -1,10 +1,23 @@
-# provision.yml
 ---
 
 - hosts: all
-  become: yes
-  become_method: sudo
+  vars:
+    postgresql_users:
+      - { name: root, password: password, role_attr_flags: SUPERUSER}
+  remote_user: root
+  roles:
+  - {role: init, become: yes}
+  - {role: nodejs, become: yes}
+  - {role: ruby, become: yes}
+  - { role: rubyrmv,
+    tags: ruby,
+    rvm1_rubies: ['ruby-2.3.1'],
+    become: yes,
+    rvm1_user: 'root'
+    }
+  - {role: postgresql, become: yes}
   tasks:
-  - name: echo variable
-    debug:
-      msg: "test ansible"
+  - name: install ruby gems
+    shell: gem install bundler mailcatcher
+  - name: install npm svgo
+    shell: npm install -g svgo

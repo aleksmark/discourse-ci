@@ -20,7 +20,7 @@
             "machine_type": "q35",
             "ssh_username": "packer",
             "ssh_password": "packer",
-            "ssh_wait_timeout": "10m",
+            "ssh_wait_timeout": "20m",
             "shutdown_command": "echo 'packer' | sudo -S shutdown -P now",
             "boot_wait": "5s",
             "boot_command": [
@@ -54,7 +54,10 @@
         },
         {
             "type": "ansible-local",
-            "playbook_file": "../ansible/playbook/provision.yml"
+            "playbook_file": "../ansible/playbook/provision.yml",
+            "role_paths": [
+                "../ansible/playbook/roles/"
+            ]
         },
         {
             "type": "shell",
