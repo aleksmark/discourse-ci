@@ -1,0 +1,10 @@
+# provision.yml
+---
+
+- hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+  - name: echo variable
+    debug:
+      msg: "test ansible"

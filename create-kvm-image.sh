@@ -2,9 +2,8 @@
 
 # create and provision ubuntu on kvm. Install everything needed to run the build
 
-# install qemu and virsh
+# install qemu
 sudo apt-get install -y qemu
-sudo apt-get install libvirt-bin
 
 # install packer
 wget https://releases.hashicorp.com/packer/1.2.2/packer_1.2.2_linux_amd64.zip && \

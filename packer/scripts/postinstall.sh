@@ -9,4 +9,3 @@ sed -i "s/^.*requiretty/#Defaults requiretty/" /etc/sudoers
 
 # Install Ansible.
 apt-get install -y ansible
-
